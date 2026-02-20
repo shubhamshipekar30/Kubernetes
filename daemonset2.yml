@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: zabbixagent
+  labels:
+    app: ds
+spec:
+    selector:
+      matchLabels:
+        app: zabbixagent
+    template:
+        metadata:
+          name: zabbixagent
+          labels:
+            app: zabbixagent
+        spec:
+          containers:
+          - name: nginx
+            image: zabbix/zabbix-agent
+            ports:
+            - containerPort: 80
