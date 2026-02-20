@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-shadow
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-app-shadow
+  template:
+    metadata:
+      labels:
+        app: my-app-shadow
+    spec:
+      containers:
+      - name: my-app-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-shadow-service
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: my-app-shadow
