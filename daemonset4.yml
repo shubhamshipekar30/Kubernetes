@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: artillery
+  labels:
+    app: ds
+spec:
+    selector:
+      matchLabels:
+        app: artillery
+    template:
+        metadata:
+          name: artillery
+          labels:
+            app: artillery
+        spec:
+          containers:
+          - name: nginx
+            image: artilleryio/artillery
+            ports:
+            - containerPort: 80
