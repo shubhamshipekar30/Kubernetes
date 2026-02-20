@@ -1,0 +1,44 @@
+# apiVersion: v1
+# kind: ReplicationController
+# metadata:
+#    name: rc-flipkartapp
+#    labels:
+#      app: rc-flipkartapp
+# spec:
+#   replica: 3
+#   selector:
+#     app: flipkart
+#   template:
+#     metadata:
+#       name: flipkart
+#       labels:
+#         app: flipkart
+#     spec:
+#       containers:
+#       - name: nginx
+#         image: nginx:latest
+#         ports:
+#         - containerPort: 80
+apiVersion:  v1 
+kind:  ReplicationController 
+metadata:
+   name: rc-flipkartapp
+   labels:
+     app: rc-flipkartapp 
+spec:
+  replicas: 3
+  selector:
+    #matchlabels:
+    app: flipkartapp 
+  template:
+    metadata: 
+      name: flipkarapp
+      labels:
+        app: flipkartapp 
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+    
