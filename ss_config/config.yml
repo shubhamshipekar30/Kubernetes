@@ -1,0 +1,10 @@
+apiVersion: v1  
+kind: ConfigMap 
+metadata: 
+  name: mysql-config
+  labels:
+    app: mysql-config
+data:
+  mysqlkey: "12345"
+
+  

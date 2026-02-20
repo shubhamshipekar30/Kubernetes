@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: statefullset
+metadata: 
+   name: mysqlstatefulset
+   labels:
+     app: mysqlstatefulset
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mysqlstatefulset
+  templates:
+    - metadata:
+        name: mysqlstatefulset
+        lables:
+          app: mysqlstatefulset
+      spec:
+        containers:
+          - name: mysql
+            image: mysql:latest
+            env:
+              - name: MYSQL_ROOT_PASSWORD
+                valuefrom:
+                  configmapkeyref:
+                    name: mysql-config
+                    key: mysqlkey
