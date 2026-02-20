@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: statefullset
+kind: statefulset
 metadata: 
    name: mysqlstatefulset
    labels:
