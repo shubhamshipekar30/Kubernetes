@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: apachejmeter
+  labels:
+    app: ds
+spec:
+    selector:
+      matchLabels:
+        app: apachejmeter
+    template:
+        metadata:
+          name: apachejmeter
+          labels:
+            app: apachejmeter
+        spec:
+          containers:
+          - name: nginx
+            image: justb4/jmeter
+            ports:
+            - containerPort: 80
