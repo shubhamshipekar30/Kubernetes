@@ -1,0 +1,15 @@
+apiVersion: v1
+kind:: PersistentVolumeClaim
+metadata: 
+  name: my-pvc
+  labels:
+    app: my-app
+spec:
+  storageClassName: standard
+  volumeMode: Filesystem
+  accessmodes: 
+    - ReadWriteOnce
+  resources: 
+    requests:
+      storage: 6gi
+

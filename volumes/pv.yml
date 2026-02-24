@@ -1,0 +1,19 @@
+apiVersoin: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv
+  labels:
+    app: my-app
+spec:
+  storageClassName: starndard
+  volumeMode: Filesystem
+  accesModes:
+    -ReadWriteOnce
+  capacity: 
+    storage: 6gi 
+  hostPath:
+    path: "/mnt/data"
+  persistentVolumeReclaimPolicy: Retain 
+  
+
+  
